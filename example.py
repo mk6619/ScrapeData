@@ -1,7 +1,8 @@
-import dataToJson as dTj
+import dataConverter as dTj
 
 
-URL = input("Enter url: ")
-tableClass = input("Enter tableID: ")
+URL = 'https://www.w3schools.com/python/module_requests.asp'
+tableClass = 'w3-table-all notranslate'
 
-print(dTj.convertTableFromUrlToJson(URL, tableClass, 'records'))
+#print(dTj.convertTableToJsonByClass(URL, tableClass, 'records'))
+print(dTj.convertTableToJsonByIndex(URL, 0, 'records'))

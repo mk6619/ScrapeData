@@ -8,8 +8,11 @@ def getDataFromUrl(url):
 def parseDataUsingHtmlParser(page):
     return BeautifulSoup(page.content, 'html.parser')
 
-def findTable(soup, tableId, tableClass):
-    return soup.find(tableId, { "class" : tableClass })
+def findTableByClass(soup, tagId, tableClass):
+    return soup.find(tagId, { "class" : tableClass })
+
+def findTableByIndex(soup, tagId, tagIndex):
+    return soup.findAll(tagId)[tagIndex]
 
 def convertTableToList(table):
     data = []
@@ -27,6 +30,8 @@ def convertListToJson(dataList, orientation):
     else:
         return df.to_json(orient='records')
 
-def convertTableFromUrlToJson(URL, tableClass, orientation, tableId = "table"):
-    return convertListToJson(convertTableToList(findTable(parseDataUsingHtmlParser(getDataFromUrl(URL)),tableId, tableClass)), orientation)
+def convertTableToJsonByClass(URL, tableClass, orientation, tagId = "table"):
+    return convertListToJson(convertTableToList(findTableByClass(parseDataUsingHtmlParser(getDataFromUrl(URL)),tagId, tableClass)), orientation)
 
+def convertTableToJsonByIndex(URL, tagIndex, orientation, tagId = "table"):
+    return convertListToJson(convertTableToList(findTableByIndex(parseDataUsingHtmlParser(getDataFromUrl(URL)),tagId, tagIndex)), orientation)
