@@ -50,5 +50,5 @@ tableClass = 'w3-table-all notranslate'
 
 print(dc.convertTableToJsonByClass(URL, tableClass, 'records'))
 print(dc.convertTableToJsonByIndex(URL, 0, 'records'))
-print(dTj.convertTableToCsvByIndex(URL, 0, 'records.csv'))
+print(dc.convertTableToCsvByIndex(URL, 0, 'records.csv'))
 ```
