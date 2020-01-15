@@ -11,8 +11,8 @@ def parseDataUsingHtmlParser(page):
     return BeautifulSoup(page.content, 'html.parser')
 
 #find tag by its class
-def findTableByClass(soup, tagId, tableClass):
-    return soup.find(tagId, { "class" : tableClass })
+def findTableByClass(soup, tagId, tagClass):
+    return soup.find(tagId, { "class" : tagClass })
 
 #find tag by its occurance index
 def findTableByIndex(soup, tagId, tagIndex):
@@ -45,6 +45,7 @@ def convertListToJson(dataList, orientation = 'none'):
     else:
         return df.to_json(orient = orientation)
 
+#converts list to csv
 def convertListToCsv(dataList, fileName):
     df = pandas.DataFrame(dataList)
     return df.to_csv(fileName)

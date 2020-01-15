@@ -1,15 +1,15 @@
 import utils
 
-#single function to do all work using tag class
-def convertTableToJsonByClass(URL, tableClass, orientation, tagId = "table"):
+#single function to convert to json using tag class
+def convertTableToJsonByClass(URL, tagClass, orientation, tagId = "table"):
     responseData = utils.getDataFromUrl(URL)
     parsedData = utils.parseDataUsingHtmlParser(responseData)
-    tableData = utils.findTableByClass(parsedData,tagId, tableClass)
+    tableData = utils.findTableByClass(parsedData,tagId, tagClass)
     listData = utils.convertTableToList(tableData)
     jsonData = utils.convertListToJson(listData, orientation)
     return jsonData
 
-#single function to do all work using tag occurance index
+#single function to convert to json using tag occurance index
 def convertTableToJsonByIndex(URL, tagIndex, orientation, tagId = "table"):
     responseData = utils.getDataFromUrl(URL)
     parsedData = utils.parseDataUsingHtmlParser(responseData)
@@ -18,14 +18,16 @@ def convertTableToJsonByIndex(URL, tagIndex, orientation, tagId = "table"):
     jsonData = utils.convertListToJson(listData, orientation)
     return jsonData
 
-def convertTableToCsvByClass(URL, tableClass, fileName, tagId = "table"):
+#single function to convert to csv using tag class
+def convertTableToCsvByClass(URL, tagClass, fileName, tagId = "table"):
     responseData = utils.getDataFromUrl(URL)
     parsedData = utils.parseDataUsingHtmlParser(responseData)
-    tableData = utils.findTableByClass(parsedData,tagId, tableClass)
+    tableData = utils.findTableByClass(parsedData,tagId, tagClass)
     listData = utils.convertTableToList(tableData)
     jsonData = utils.convertListToCsv(listData, fileName)
     return jsonData
 
+#single function to convert to csv using tag occurance index
 def convertTableToCsvByIndex(URL, tagIndex, fileName, tagId = "table"):
     responseData = utils.getDataFromUrl(URL)
     parsedData = utils.parseDataUsingHtmlParser(responseData)
