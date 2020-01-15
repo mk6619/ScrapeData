@@ -38,7 +38,7 @@ def convertTableToList(table):
 ‘values’ : just the values array
 ‘table’ : dict like {‘schema’: {schema}, ‘data’: {data}} describing the data, and the data component is like orient='records'.
 """
-def convertListToJson(dataList, orientation == 'none'):
+def convertListToJson(dataList, orientation = 'none'):
     df = pandas.DataFrame(dataList)
     if orientation == 'none':
         return df.to_json()
