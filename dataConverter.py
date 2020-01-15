@@ -17,3 +17,19 @@ def convertTableToJsonByIndex(URL, tagIndex, orientation, tagId = "table"):
     listData = utils.convertTableToList(tableData)
     jsonData = utils.convertListToJson(listData, orientation)
     return jsonData
+
+def convertTableToCsvByClass(URL, tableClass, fileName, tagId = "table"):
+    responseData = utils.getDataFromUrl(URL)
+    parsedData = utils.parseDataUsingHtmlParser(responseData)
+    tableData = utils.findTableByClass(parsedData,tagId, tableClass)
+    listData = utils.convertTableToList(tableData)
+    jsonData = utils.convertListToCsv(listData, fileName)
+    return jsonData
+
+def convertTableToCsvByIndex(URL, tagIndex, fileName, tagId = "table"):
+    responseData = utils.getDataFromUrl(URL)
+    parsedData = utils.parseDataUsingHtmlParser(responseData)
+    tableData = utils.findTableByIndex(parsedData,tagId, tagIndex)
+    listData = utils.convertTableToList(tableData)
+    jsonData = utils.convertListToCsv(listData, fileName)
+    return jsonData

@@ -45,6 +45,6 @@ def convertListToJson(dataList, orientation = 'none'):
     else:
         return df.to_json(orient = orientation)
 
-def convertListToCsv(dataList):
+def convertListToCsv(dataList, fileName):
     df = pandas.DataFrame(dataList)
-    return df.to_csv()
+    return df.to_csv(fileName)
