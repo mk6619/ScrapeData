@@ -7,7 +7,7 @@ Python module to get table data from any webpage and converts it into either Jso
 3. Requests
 
 ## Usage
-There are 4 functions exposed which will do all the work for you which is available in **dataConverter**
+There are 4 functions exposed which will do all the work for you available in **dataConverter**
 ```
 1. convertTableToJsonByClass(URL, tagClass, orientation, tagId = "table")
 2. convertTableToJsonByIndex(URL, tagIndex, orientation, tagId = "table")
@@ -37,4 +37,18 @@ There are other functions available in **utils** if you want to customize the im
 5. convertTableToList(table)
 6. convertListToJson(dataList, orientation = 'none')
 7. convertListToCsv(dataList, fileName)
+```
+
+## Example Code
+
+```
+import dataConverter as dc
+
+
+URL = 'https://www.w3schools.com/python/module_requests.asp'
+tableClass = 'w3-table-all notranslate'
+
+print(dc.convertTableToJsonByClass(URL, tableClass, 'records'))
+print(dc.convertTableToJsonByIndex(URL, 0, 'records'))
+print(dTj.convertTableToCsvByIndex(URL, 0, 'records.csv'))
 ```
