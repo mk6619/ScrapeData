@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 def getDataFromUrl(url):
     return requests.get(url)
 
-#Parse HTML data using beautiful soup library
+#parse HTML data using beautiful soup library
 def parseDataUsingHtmlParser(page):
     return BeautifulSoup(page.content, 'html.parser')
 
@@ -14,11 +14,11 @@ def parseDataUsingHtmlParser(page):
 def findTableByClass(soup, tagId, tableClass):
     return soup.find(tagId, { "class" : tableClass })
 
-#find tag by its index
+#find tag by its occurance index
 def findTableByIndex(soup, tagId, tagIndex):
     return soup.findAll(tagId)[tagIndex]
 
-#convert table data to list
+#converts table data to list
 def convertTableToList(table):
     data = []
     rows = table.find_all('tr')
@@ -28,35 +28,27 @@ def convertTableToList(table):
         data.append([ele for ele in cols if ele])
     return data
 
-#convert list to json
-#using orientation we can convert list to json row wise or column wise
-#options available are as follows:-
-
+#converts list to json
+#options available for orientation
 """
 ‘split’ : dict like {‘index’ -> [index], ‘columns’ -> [columns], ‘data’ -> [values]}
-
 ‘records’ : list like [{column -> value}, … , {column -> value}]
-
 ‘index’ : dict like {index -> {column -> value}}
-
 ‘columns’ : dict like {column -> {index -> value}}
-
 ‘values’ : just the values array
-
 ‘table’ : dict like {‘schema’: {schema}, ‘data’: {data}} describing the data, and the data component is like orient='records'.
 """
-
-def convertListToJson(dataList, orientation):
+def convertListToJson(dataList, orientation == 'none'):
     df = pandas.DataFrame(dataList)
     if orientation == 'none':
         return df.to_json()
     else:
-        return df.to_json(orient='records')
+        return df.to_json(orient = orientation)
 
-#a single function to do all work by taking tag class as input
+#single function to do all work using tag class
 def convertTableToJsonByClass(URL, tableClass, orientation, tagId = "table"):
     return convertListToJson(convertTableToList(findTableByClass(parseDataUsingHtmlParser(getDataFromUrl(URL)),tagId, tableClass)), orientation)
 
-#a single function to do all work by taking tag index as input
+#single function to do all work using tag occurance index
 def convertTableToJsonByIndex(URL, tagIndex, orientation, tagId = "table"):
     return convertListToJson(convertTableToList(findTableByIndex(parseDataUsingHtmlParser(getDataFromUrl(URL)),tagId, tagIndex)), orientation)
