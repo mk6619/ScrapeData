@@ -1,13 +1,19 @@
 # ScrapeData
 Python module to get table data from any webpage and converts it into either Json or Csv
 
-## Usage
-There are 4 functions exposed which will do all the work for you available in **dataConverter**
+## Installation
+Supported python version is 3.0+
 ```
-1. convertTableToJsonByClass(URL, tagClass, orientation, tagId = "table")
-2. convertTableToJsonByIndex(URL, tagIndex, orientation, tagId = "table")
-3. convertTableToCsvByClass(URL, tagClass, fileName, tagId = "table")
-4. convertTableToCsvByIndex(URL, tagIndex, fileName, tagId = "table")
+pip3 install ScrapeData
+```
+
+## Usage
+There are 4 functions exposed which will do all the work for you available in **TableParser**
+```
+1. toJsonByClass(URL, tagClass, orientation, tagId = "table")
+2. toJsonByIndex(URL, tagIndex, orientation, tagId = "table")
+3. toCsvByClass(URL, tagClass, fileName, tagId = "table")
+4. toCsvByIndex(URL, tagIndex, fileName, tagId = "table")
 ```
 
 1. **URL** :- The url from where table needs to fetched
@@ -37,13 +43,13 @@ There are other functions available in **utils** if you want to customize the im
 ## Example Code
 
 ```
-import dataConverter as dc
-
+from ScrapeData import TableParser as parser
+from ScrapeData import Utils
 
 URL = 'https://www.w3schools.com/python/module_requests.asp'
 tableClass = 'w3-table-all notranslate'
 
-print(dc.convertTableToJsonByClass(URL, tableClass, 'records'))
-print(dc.convertTableToJsonByIndex(URL, 0, 'records'))
-print(dc.convertTableToCsvByIndex(URL, 0, 'records.csv'))
+print(parser.toJsonByClass(URL, tableClass, 'records'))
+print(parser.toJsonByIndex(URL, 0, 'records'))
+print(parser.toCsvByIndex(URL, 0, 'records.csv'))
 ```
