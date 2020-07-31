@@ -1,9 +1,9 @@
 README.md
 setup.py
+ScrapeData/TableParser.py
+ScrapeData/Utils.py
 ScrapeData/__init__.py
-ScrapeData/dataConverter.py
 ScrapeData/example.py
-ScrapeData/utils.py
 ScrapeData.egg-info/PKG-INFO
 ScrapeData.egg-info/SOURCES.txt
 ScrapeData.egg-info/dependency_links.txt

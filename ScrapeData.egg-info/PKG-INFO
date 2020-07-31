@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: ScrapeData
-Version: 0.0.4
+Version: 0.0.5
 Summary: Python module to get table data from any webpage and converts it into either Json or Csv
 Home-page: https://github.com/mk6619/
 Author: Mayank khursija

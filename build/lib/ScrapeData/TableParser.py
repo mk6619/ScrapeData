@@ -1,7 +1,7 @@
-from ScrapeData import utils
+import Utils
 
 #single function to convert to json using tag class
-def convertTableToJsonByClass(URL, tagClass, orientation, tagId = "table"):
+def toJsonByClass(URL, tagClass, orientation, tagId = "table"):
     responseData = utils.getDataFromUrl(URL)
     parsedData = utils.parseDataUsingHtmlParser(responseData)
     tableData = utils.findTableByClass(parsedData,tagId, tagClass)
@@ -10,7 +10,7 @@ def convertTableToJsonByClass(URL, tagClass, orientation, tagId = "table"):
     return jsonData
 
 #single function to convert to json using tag occurance index
-def convertTableToJsonByIndex(URL, tagIndex, orientation, tagId = "table"):
+def toJsonByIndex(URL, tagIndex, orientation, tagId = "table"):
     responseData = utils.getDataFromUrl(URL)
     parsedData = utils.parseDataUsingHtmlParser(responseData)
     tableData = utils.findTableByIndex(parsedData,tagId, tagIndex)
@@ -19,7 +19,7 @@ def convertTableToJsonByIndex(URL, tagIndex, orientation, tagId = "table"):
     return jsonData
 
 #single function to convert to csv using tag class
-def convertTableToCsvByClass(URL, tagClass, fileName, tagId = "table"):
+def toCsvByClass(URL, tagClass, fileName, tagId = "table"):
     responseData = utils.getDataFromUrl(URL)
     parsedData = utils.parseDataUsingHtmlParser(responseData)
     tableData = utils.findTableByClass(parsedData,tagId, tagClass)
@@ -28,7 +28,7 @@ def convertTableToCsvByClass(URL, tagClass, fileName, tagId = "table"):
     return jsonData
 
 #single function to convert to csv using tag occurance index
-def convertTableToCsvByIndex(URL, tagIndex, fileName, tagId = "table"):
+def toCsvByIndex(URL, tagIndex, fileName, tagId = "table"):
     responseData = utils.getDataFromUrl(URL)
     parsedData = utils.parseDataUsingHtmlParser(responseData)
     tableData = utils.findTableByIndex(parsedData,tagId, tagIndex)
