@@ -1,4 +1,4 @@
-from ScrapeData import utils
+import Utils
 
 #single function to convert to json using tag class
 def toJsonByClass(URL, tagClass, orientation, tagId = "table"):
