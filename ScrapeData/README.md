@@ -1,6 +1,11 @@
 # ScrapeData
 Python module to get table data from any webpage and converts it into either Json or Csv
 
+## Required Libs
+1. Pandas
+2. Beautiful Soup
+3. Requests
+
 ## Usage
 There are 4 functions exposed which will do all the work for you available in **dataConverter**
 ```
