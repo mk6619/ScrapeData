@@ -1,10 +1,12 @@
 # ScrapeData
 Python module to get table data from any webpage and converts it into either Json or Csv
 
-## Required Libs
-1. Pandas
-2. Beautiful Soup
-3. Requests
+## Installation
+Supported python version is 3.0+
+```
+pip3 install ScrapeData
+```
+
 
 ## Usage
 There are 4 functions exposed which will do all the work for you available in **dataConverter**
@@ -42,8 +44,8 @@ There are other functions available in **utils** if you want to customize the im
 ## Example Code
 
 ```
-import dataConverter as dc
-
+from ScrapeData import dataConverter as dc
+from ScrapeData import utils
 
 URL = 'https://www.w3schools.com/python/module_requests.asp'
 tableClass = 'w3-table-all notranslate'
