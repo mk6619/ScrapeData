@@ -19,8 +19,8 @@ There are 4 functions exposed which will do all the work for you available in **
 1. **URL** :- The url from where table needs to fetched
 2. **tagClass** :- if there is any class associated with tag
 3. **tagIndex** :- the occurance index of the table you want to fetch.
-4. **tagId** :- the html tag which is by default table
-5. **orientation** :- 
+4. **tagId** :- the html tag which is by default table (optional value)
+5. **orientation** :-
 ```
 ‘split’ : dict like {‘index’ -> [index], ‘columns’ -> [columns], ‘data’ -> [values]}
 ‘records’ : list like [{column -> value}, … , {column -> value}]
@@ -29,7 +29,7 @@ There are 4 functions exposed which will do all the work for you available in **
 ‘values’ : just the values array
 ‘table’ : dict like {‘schema’: {schema}, ‘data’: {data}} describing the data, and the data component is like orient='records'.
 ```
-There are other functions available in **utils** if you want to customize the implementation.
+There are other functions available in **Utils** if you want to customize the implementation.
 ```
 1. getDataFromUrl(url)
 2. parseDataUsingHtmlParser(page)
